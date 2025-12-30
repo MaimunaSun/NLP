@@ -57,3 +57,22 @@ Outcome: Actionable insights explaining why restaurant ratings vary
 - Reveals operational features that amplify or mitigate negative sentiment
 - Applies Pareto analysis to prioritize high-impact improvement areas
 - Bridges the gap between unstructured text data and business decision-making
+
+## Future Work
+Several extensions could further enhance the impact and practical applicability of this project:
+
+- **Real-Time Model Deployment:**  
+  Deploy the trained sentiment and aspect extraction models as a production API to enable near real-time analysis of incoming customer reviews.
+
+- **Interactive Dashboard Development:**  
+  Integrate model outputs into an interactive dashboard (e.g. Power BI, Tableau, or Streamlit) to allow business stakeholders to monitor sentiment trends, key drivers of dissatisfaction, and operational performance over time.
+
+- **Aspect-Level Rating Prediction:**  
+  Extend the framework to predict expected star ratings from aspect-level sentiment, enabling scenario and “what-if” analysis for operational improvements.
+
+- **Model Enhancement & Domain Adaptation:**  
+  Improve model performance through further fine-tuning on cuisine-specific or region-specific datasets and by exploring advanced aspect-based sentiment models.
+
+- **Scalable & Streaming Architecture:**  
+  Incorporate streaming data pipelines and automated retraining workflows to support large-scale, continuously evolving review data.
+
