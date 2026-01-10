@@ -3,7 +3,7 @@
 ## Project Overview
 Restaurants receive thousands of customer reviews, but star ratings alone do not explain why ratings increase or decline. Customer reviews contain rich qualitative information about food quality, service, pricing, ambience, and operational factors. However, this information is unstructured and difficult to analyze at scale, limiting restaurants’ ability to identify the true drivers of customer satisfaction and dissatisfaction.  
 
-This project uses aspect-based sentiment analysis to transform unstructured Yelp restaurant reviews into structured insights that explain rating behavior beyond star scores alone.
+This project leverages aspect-based sentiment analysis to convert unstructured Yelp restaurant reviews into structured insights that explain changes in restaurant ratings beyond star scores alone.
 
 The **ML_Production** folder contains production-ready code, pre-trained models, and Docker setup for deploying sentiment and aspect extraction APIs.
 
