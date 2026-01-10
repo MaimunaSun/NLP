@@ -90,6 +90,5 @@ Based on the current implementation, the following extensions could further enha
 
 - **Interactive Dashboard Integration:** Use outputs from the ML_Production API to build dashboards in Streamlit, Tableau, or Power BI, allowing stakeholders to monitor sentiment trends and key drivers over time.  
 - **Streaming Data Support:** Integrate with streaming pipelines (e.g., Kafka) to process incoming reviews in near real-time and automatically update sentiment and aspect scores.  
-- **Domain-Specific Model Enhancements:** Fine-tune models for specific cuisines or regional restaurant types to improve aspect recognition and sentiment accuracy.  
-- **Aspect-Level Star Rating Prediction:** Extend the framework to predict expected star ratings from aspect-level sentiment for operational “what-if” analysis.  
+- **Domain-Specific Model Enhancements:** Fine-tune models for specific cuisines or regional restaurant types to improve aspect recognition and sentiment accuracy. 
 - **Automated Model Retraining:** Implement scheduled retraining workflows to continuously improve model performance on new review data.  
