@@ -1,78 +1,95 @@
 # Explaining Restaurant Ratings Using Customer Reviews
+
 ## Project Overview
-Restaurants receive thousands of customer reviews, but star ratings alone do not explain why ratings increase or decline. Customer reviews contain rich qualitative information about food quality, service, pricing, ambience, and operational factors. However, this information is unstructured and difficult to analyze at scale, limiting restaurants’ ability to identify the true drivers of customer satisfaction and dissatisfaction. This project applies natural language processing (NLP) and machine learning to transform unstructured Yelp restaurant reviews into structured insights that explain rating behavior beyond star scores alone.
+Restaurants receive thousands of customer reviews, but star ratings alone do not explain why ratings increase or decline. Customer reviews contain rich qualitative information about food quality, service, pricing, ambience, and operational factors. However, this information is unstructured and difficult to analyze at scale, limiting restaurants’ ability to identify the true drivers of customer satisfaction and dissatisfaction.  
+
+This project applies natural language processing (NLP) and machine learning to transform unstructured Yelp restaurant reviews into structured insights that explain rating behavior beyond star scores alone.  
+
+The **ML_Production** folder contains production-ready code, pre-trained models, and Docker setup for deploying sentiment and aspect extraction APIs.
+
+---
 
 ## Project Objectives
-- Predict customer sentiment from review text using transformer-based models
-- Identify key aspects (topics) discussed in restaurant reviews
-- Link sentiment and aspects to restaurant operational attributes
-- Explain why restaurant ratings vary using data-driven insights
-- Provide an analytical framework for prioritizing operational improvements
+- Predict customer sentiment from review text using transformer-based models  
+- Identify key aspects (topics) discussed in restaurant reviews  
+- Link sentiment and aspects to restaurant operational attributes  
+- Explain why restaurant ratings vary using data-driven insights  
+- Deploy models in production with a REST API and Docker  
 
-## Methodology Overview
-The project is structured into three logical notebooks, each representing a distinct stage of the analytics pipeline:
-
+---
 ## Tools & Technologies
-- Programming: Python
-- Big Data Processing: PySpark
-- NLP & ML: Transformers (DistilBERT), BERTopic, SentenceTransformers
-- Libraries: Pandas, NumPy, Scikit-learn
-- Visualization: Matplotlib, Seaborn
-- Environment: Google Colab
+- **Programming:** Python  
+- **Big Data Processing:** PySpark  
+- **NLP & ML:** Transformers (DistilBERT), BERTopic, SentenceTransformers  
+- **Libraries:** Pandas, NumPy, Scikit-learn  
+- **Deployment:** FastAPI, Docker  
+- **Visualization:** Matplotlib, Seaborn  
+- **Environment:** Google Colab for development notebooks
+- 
+## Project Structure
+---
 
 ## Notebook Overview
-### Notebook 1: Model Development
-Purpose: Sentiment Classification & Aspect Extraction Model Training
-- Scalable data processing using PySpark
-- Creation of sentiment labels from star ratings
-- Fine-tuning a DistilBERT model for 3-class sentiment classification
-- Training a BERTopic model for aspect (topic) extraction
-- Evaluation using accuracy, precision, recall, and F1-score
-- Trained models are saved for reuse
-Outcome: Reusable sentiment and aspect extraction models
-### Notebook 2: Sentiment Prediction & Aspect Extraction
-Purpose: Apply trained models at scale
-- Loads previously trained sentiment and topic models
-- Performs batch sentiment prediction on restaurant reviews
-- Extracts review-level aspects using BERTopic
-- Combines model outputs with:
-     - Business identifiers
-     - Review text
-     - Star ratings
-     - Restaurant operational attributes
-- Constructs a unified analytical dataset (aspect_df)
-Outcome: Structured review-level dataset for insight analysis
-### Notebook 3: Insight Analysis
-Purpose: Explain rating behavior and identify drivers of sentiment
-- Exploratory and diagnostic analysis on aspect_df
-- Topic frequency and sentiment distribution analysis
-- Net sentiment scoring by restaurant aspect
-- Aspect-specific operational driver analysis
--  Pareto analysis of negative sentiment drivers
--   eatmaps for operational attribute diagnostics
-Outcome: Actionable insights explaining why restaurant ratings vary
 
+### Notebook 1: Model Development
+**Purpose:** Train sentiment and aspect extraction models  
+- Data processing using PySpark  
+- Create sentiment labels from star ratings  
+- Fine-tune DistilBERT for 3-class sentiment classification  
+- Train BERTopic for aspect extraction  
+- Evaluate models with accuracy, precision, recall, and F1-score  
+- Save trained models for production deployment  
+
+**Outcome:** Reusable sentiment and aspect extraction models  
+
+### Notebook 2: Sentiment Prediction & Aspect Extraction
+**Purpose:** Apply trained models at scale  
+- Load previously trained sentiment and topic models  
+- Perform batch sentiment prediction on restaurant reviews  
+- Extract review-level aspects using BERTopic  
+- Combine outputs with business IDs, review text, star ratings, and operational attributes  
+- Construct a unified analytical dataset (`aspect_df`)  
+
+**Outcome:** Structured review-level dataset for insight analysis  
+
+### Notebook 3: Insight Analysis
+**Purpose:** Explain rating behavior and identify drivers of sentiment  
+- Exploratory and diagnostic analysis on `aspect_df`  
+- Topic frequency and sentiment distribution analysis  
+- Net sentiment scoring by restaurant aspect  
+- Aspect-specific operational driver analysis  
+- Pareto analysis of negative sentiment drivers  
+- Heatmaps for operational attribute diagnostics  
+
+**Outcome:** Actionable insights explaining why restaurant ratings vary  
+
+---
+
+## ML_Production Folder
+**Purpose:** Production-ready sentiment and aspect extraction API.  
+
+**Contents:**  
+- `app.py` – FastAPI application serving inference endpoints (`/predict` and `/predict_batch`)  
+- `models.py` – Loads pre-trained sentiment and aspect models  
+- `inference.py` – Handles single and batch predictions  
+- `requirements.txt` – Python dependencies  
+- `Dockerfile` & `.dockerignore` – Containerization setup  
+- `restaurant_sentiment_model/` – Pre-trained models (mounted as a Docker volume, excluded from Git for size)
+  
 ## Key Insights Enabled by This Project
-- Identifies which restaurant aspects drive dissatisfaction despite high star ratings
-- Reveals operational features that amplify or mitigate negative sentiment
-- Applies Pareto analysis to prioritize high-impact improvement areas
-- Bridges the gap between unstructured text data and business decision-making
+- Identifies which restaurant aspects drive dissatisfaction despite high star ratings  
+- Reveals operational features that amplify or mitigate negative sentiment  
+- Applies Pareto analysis to prioritize high-impact improvement areas  
+- Bridges the gap between unstructured text data and business decision-making  
+- Enables production-ready deployment for real-time review analysis via **ML_Production**  
+
+---
 
 ## Future Work
-Several extensions could further enhance the impact and practical applicability of this project:
+Based on the current implementation, the following extensions could further enhance the project:
 
-- **Real-Time Model Deployment:**  
-  Deploy the trained sentiment and aspect extraction models as a production API to enable near real-time analysis of incoming customer reviews.
-
-- **Interactive Dashboard Development:**  
-  Integrate model outputs into an interactive dashboard (e.g. Power BI, Tableau, or Streamlit) to allow business stakeholders to monitor sentiment trends, key drivers of dissatisfaction, and operational performance over time.
-
-- **Aspect-Level Rating Prediction:**  
-  Extend the framework to predict expected star ratings from aspect-level sentiment, enabling scenario and “what-if” analysis for operational improvements.
-
-- **Model Enhancement & Domain Adaptation:**  
-  Improve model performance through further fine-tuning on cuisine-specific or region-specific datasets and by exploring advanced aspect-based sentiment models.
-
-- **Scalable & Streaming Architecture:**  
-  Incorporate streaming data pipelines and automated retraining workflows to support large-scale, continuously evolving review data.
-
+- **Interactive Dashboard Integration:** Use outputs from the ML_Production API to build dashboards in Streamlit, Tableau, or Power BI, allowing stakeholders to monitor sentiment trends and key drivers over time.  
+- **Streaming Data Support:** Integrate with streaming pipelines (e.g., Kafka) to process incoming reviews in near real-time and automatically update sentiment and aspect scores.  
+- **Domain-Specific Model Enhancements:** Fine-tune models for specific cuisines or regional restaurant types to improve aspect recognition and sentiment accuracy.  
+- **Aspect-Level Star Rating Prediction:** Extend the framework to predict expected star ratings from aspect-level sentiment for operational “what-if” analysis.  
+- **Automated Model Retraining:** Implement scheduled retraining workflows to continuously improve model performance on new review data.  
