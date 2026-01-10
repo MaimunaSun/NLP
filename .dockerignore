@@ -1,0 +1,17 @@
+# Python cache and virtual environments
+__pycache__/
+venv/
+.venv/
+__pycache__/
+venv/
+.venv/
+env/
+.env
+.git/
+.gitignore
+.cache/
+restaurant_sentiment_model/
+*.pt
+*.bin
+*.pkl
+*.joblib
