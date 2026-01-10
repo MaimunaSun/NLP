@@ -1,4 +1,4 @@
-# Explaining Restaurant Ratings Using Customer Reviews
+# NLP-Restaurant-Review-Insights
 
 ## Project Overview
 Restaurants receive thousands of customer reviews, but star ratings alone do not explain why ratings increase or decline. Customer reviews contain rich qualitative information about food quality, service, pricing, ambience, and operational factors. However, this information is unstructured and difficult to analyze at scale, limiting restaurants’ ability to identify the true drivers of customer satisfaction and dissatisfaction.  
